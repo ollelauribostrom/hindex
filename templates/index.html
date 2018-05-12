@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>%TITLE%</title>
+		<link rel="icon" href="assets/logo.png">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="styles/milligram.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+	</head>
+	<body>
+		<aside class="navigation">
+			<header>
+				<h1 class="title">%TITLE%</h1>
+			</header>
+			<div class="content">
+				%LINKS%
+			</div>
+			<footer>
+				<span class="hindex">Generated with ♥ by <a href="https://github.com/ollelauribostrom/hindex" title="hindex">hindex</a></span>
+			</footer>
+		</aside>
+		<iframe class="iframe"></iframe>
+		<script>
+			const iframe = document.querySelector('.iframe');
+			const links = document.querySelectorAll('.link');
+			iframe.setAttribute('src', `${links[0].getAttribute('data-url')}/index.html`);
+			links[0].classList.add('active');
+			links.forEach(link => link.addEventListener('click', () => {
+				links.forEach(link => link.classList.remove('active'));
+				link.classList.add('active');
+				iframe.setAttribute('src', `${link.getAttribute('data-url')}/index.html`);
+			}))
+		</script>
+	</body>
+</html>
