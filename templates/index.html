@@ -126,7 +126,7 @@
 				if (window.location.hash !== '') {
 					const linkHash = Array
 						.from(links)
-						.find(link => link.getAttribute('data-name') === window.location.hash.replace('#', ''));
+						.find(link => link.getAttribute('data-url') === window.location.hash.replace('#', ''));
 					if (linkHash) {
 						return setActive(linkHash);
 					}
@@ -136,24 +136,11 @@
 
 			function setActive(link, updateHash) {
 				if (updateHash) {
-					window.location.hash = link.getAttribute('data-name');
+					window.location.hash = link.getAttribute('data-url');
 				}
 				links.forEach(link => link.classList.remove('active'));
 				link.classList.add('active');
-				iframe.setAttribute('src', resolveURL(`${link.getAttribute('data-url')}/index.html`));
-			}
-
-			function resolveURL(url) {
-				let localPath = url.split('/');
-				localPath.shift();
-				if (url[0] === '/') {
-					localPath.shift();
-				}
-				return isLocalhost(window.location.hostname) ? localPath.join('/') : url;
-			}
-
-			function isLocalhost(host) {
-				return host === 'localhost' || host === '127.0.0.1' || host === '';
+				iframe.setAttribute('src', `${link.getAttribute('data-url')}/index.html`);
 			}
 		</script>
 	</body>

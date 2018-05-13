@@ -7,7 +7,6 @@ import hindex from '../hindex';
 let config;
 const defaultConfig = {
   baseDir: process.cwd(),
-  prefix: process.cwd().split(path.sep).pop(),
   exclude: [],
   categories: null,
   title: 'Hindex',

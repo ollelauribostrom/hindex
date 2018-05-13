@@ -14,8 +14,8 @@ export function captialize(word) {
   return word.replace(/\b\w/g, l => l.toUpperCase());
 }
 
-export function getLink(base, dir, category) {
-  return `<li class="link" data-name="${dir}" data-url="${base}/${dir}">${removeCategoryName(dir, category)}</li>`;
+export function getLink(dir, category) {
+  return `<li class="link" data-url="${dir}">${removeCategoryName(dir, category)}</li>`;
 }
 
 export function inCategory(directory, category) {
@@ -29,7 +29,7 @@ export function getLinks(config, directories) {
     config.categories.forEach((category) => {
       const categoryLinks = directories
         .filter(dir => inCategory(dir, category))
-        .map(dir => getLink(config.prefix, dir, category))
+        .map(dir => getLink(dir, category))
         .join('');
       links.push(`
         <ul>
@@ -40,7 +40,7 @@ export function getLinks(config, directories) {
     });
   } else {
     const allLinks = directories
-      .map(dir => getLink(config.prefix, dir))
+      .map(dir => getLink(dir))
       .join('');
     links.push(`<ul>${allLinks}</ul>`);
   }
