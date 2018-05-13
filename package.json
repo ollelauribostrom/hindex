@@ -1,6 +1,6 @@
 {
   "name": "@ollelauribostrom/hindex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a index.html listing all subdirectories containing index.html files - The perfect wrapper for coverage reports",
   "main": "dist/hindex.js",
   "bin": {
