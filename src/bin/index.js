@@ -5,22 +5,20 @@ import path from 'path';
 import hindex from '../hindex';
 
 let config;
+const defaultConfig = {
+  baseDir: process.cwd(),
+  prefix: process.cwd().split(path.sep).pop(),
+  exclude: [],
+  categories: null,
+  title: 'Hindex',
+};
 
 try {
   config = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'hindex.config.json')));
 } catch (err) {
-  config = {
-    exclude: [],
-    categories: null,
-    title: 'Hindex',
-  };
+  config = {};
+  console.log('No config file found, using default');
 }
 
-hindex({
-  baseDir: process.cwd(),
-  exclude: config.exclude,
-  categories: config.categories,
-  title: config.title,
-});
-
+hindex(Object.assign({}, defaultConfig, config));
 process.exit(0);
