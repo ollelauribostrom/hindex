@@ -31,11 +31,8 @@
   "author": "Olle Lauri Boström <ollebostr@gmail.com> (https://github.com/ollelauribostrom)",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.12.2",
+    "chalk": "^2.4.1",
     "fs-extra": "^6.0.1"
-  },
-  "directories": {
-    "test": "test"
   },
   "repository": {
     "type": "git",

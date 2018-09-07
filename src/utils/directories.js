@@ -14,8 +14,22 @@ export function hasHTMLIndexFile(dir) {
 }
 
 export default function getDirectories(config) {
-  return fs.readdirSync(config.baseDir)
-    .filter(isDirectory)
-    .filter(dir => excludeDirectories(dir, config.exclude))
-    .filter(hasHTMLIndexFile);
+  try {
+    return fs.readdirSync(config.baseDir)
+      .filter(isDirectory)
+      .filter(dir => excludeDirectories(dir, config.exclude))
+      .filter(hasHTMLIndexFile);
+  } catch (err) {
+    switch (err.code) {
+      case 'EACCES':
+        err.message = `Permission denied while reading directory: ${config.baseDir}`;
+        break;
+      case 'ENOENT':
+        err.message = `Directory not found: ${config.baseDir}`;
+        break;
+      default:
+        err.message = `Error while reading directory: ${config.baseDir}`;
+    }
+    throw err;
+  }
 }

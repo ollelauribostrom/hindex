@@ -1,0 +1,35 @@
+sudo: false
+language: node_js
+node_js:
+- '8'
+- '10'
+cache:
+  directories:
+  - node_modules
+before_install:
+- npm update
+install:
+- npm install
+script:
+- npm test
+- npm run coveralls
+after_success:
+  - npm pack
+deploy:
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file_glob: true
+    file: "hindex-*.tgz"
+    skip_cleanup: true
+    on:
+      node: '8'
+      tags: true
+      branch: master
+  - provider: npm
+    skip_cleanup: true
+    email: "ollebostr@gmail.com"
+    api_key: $NPM_TOKEN
+    on:
+      node: '8'
+      tags: true
+      branch: master

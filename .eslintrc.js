@@ -14,12 +14,16 @@ module.exports = {
       "varsIgnorePattern": "chai|should",
       "ignoreRestSiblings": true,
     }],
+    "no-restricted-syntax": 0,
+    "guard-for-in": 0,
+    "import/prefer-default-export": 0
   },
   "globals": {
     "describe": true,
     "before": true,
     "it": true,
     "expect": true,
+    "jest": true
   },
   "parser": "babel-eslint",
 };
