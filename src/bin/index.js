@@ -2,6 +2,7 @@
 
 import path from 'path';
 import hindex from '../hindex';
+import { version } from '../../package.json';
 import { readConfigFile } from '../utils/config';
 import * as log from '../utils/logger';
 
@@ -24,5 +25,10 @@ export async function run(argv) {
 }
 
 if (process.env.NODE_ENV !== 'test') {
+  if (process.argv[2] === '-v' || process.argv[2] === '-V' || process.argv[2] === '--version') {
+    console.log(version);
+    process.exit(0);
+  }
+
   run(process.argv);
 }

@@ -1,3 +1,10 @@
 src
 test
 .idea
+hindex-*.tgz
+.github
+.babelrc
+.editorconfig
+.eslintrc.js
+.npmignore
+.travis.yml

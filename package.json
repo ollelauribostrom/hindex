@@ -1,7 +1,7 @@
 {
   "name": "@ollelauribostrom/hindex",
   "version": "1.0.3",
-  "description": "Generate a index.html listing all subdirectories containing index.html files - The perfect wrapper for coverage reports",
+  "description": "Wrap your reports in an index.html file with a single command",
   "main": "dist/hindex.js",
   "bin": {
     "hindex": "dist/bin/index.js"
@@ -38,12 +38,23 @@
     "type": "git",
     "url": "git+https://github.com/ollelauribostrom/hindex.git"
   },
-  "keywords": [],
+  "keywords": [
+    "index.html",
+    "report linking",
+    "coverage reports",
+    "coverage",
+    "reports",
+    "wrapper"
+  ],
   "bugs": {
     "url": "https://github.com/ollelauribostrom/hindex/issues"
   },
   "homepage": "https://github.com/ollelauribostrom/hindex#readme",
   "jest": {
-    "coverageDirectory": "<rootDir>/test/coverage"
+    "coverageDirectory": "<rootDir>/test/coverage",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**.js"
+    ]
   }
 }
