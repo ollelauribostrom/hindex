@@ -12,7 +12,7 @@ Installation
 
 Configuration
 -------------
-Before you can use **hindex**, you need to create a configuration file called `hindex.config.json` in the root of your project. The following options are available.
+Before you can use **hindex**, you need to create a configuration file called `hindex.config.json`. The following options are available.
 
 | Option            | Description                                           | Type     | Default            |
 | ------------------|-------------------------------------------------------| ---------|--------------------|
@@ -38,13 +38,21 @@ Before you can use **hindex**, you need to create a configuration file called `h
 
 Usage
 -----
-> NOTE: Make sure you have a configuration file called `hindex.config.json` in the root of your project.
+> NOTE: Make sure you have created a configuration file called `hindex.config.json`.
 
 ### From the command line
 A global installation of **hindex** can be used directly from the command line.
 ```sh
 # Generate index.html wrapper
 hindex
+
+# Specify a custom path to your hindex config
+hindex -c=./config/hindex.config.json
+hindex --config=./config/hindex.config.json
+
+# Run in debug mode
+hindex -d
+hindex --debug
 
 # Print version
 hindex -v
