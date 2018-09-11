@@ -1,4 +1,4 @@
-import copyTemplates from './utils/templates';
+import { copyTemplates } from './utils/templates';
 import { parseConfig } from './utils/config';
 
 export default function (config) {

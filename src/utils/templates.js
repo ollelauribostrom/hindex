@@ -1,9 +1,9 @@
 import fs from 'fs-extra';
 import path from 'path';
-import getDirectories from './directories';
+import { getDirectories } from './directories';
 
-export function ensurePositive(i) {
-  return i < 0 ? 0 : i;
+export function ensurePositive(n) {
+  return n < 0 ? 0 : n;
 }
 
 export function removeCategoryName(dirName, categoryName, config) {
@@ -18,7 +18,7 @@ export function removeCategoryName(dirName, categoryName, config) {
   return dirName;
 }
 
-export function captialize(word) {
+export function capitalize(word) {
   return word.replace(/\b\w/g, l => l.toUpperCase());
 }
 
@@ -37,7 +37,7 @@ export function getLinkHTML(dir, category, config) {
 export function getCategoryHTML(category, links) {
   return `
     <ul>
-      <h5>${captialize(category)}</h5>
+      <h5>${capitalize(category)}</h5>
       ${links}
     </ul>
   `;
@@ -108,7 +108,7 @@ export function copyAssets(config) {
   }
 }
 
-export default function copyTemplates(config) {
+export function copyTemplates(config) {
   const HTMLIndexPath = copyHTMLIndex(config, getLinksHTML(config, getDirectories(config)));
   copyAssets(config);
   return {

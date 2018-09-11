@@ -1,24 +1,24 @@
 import fs from 'fs';
 import path from 'path';
 
-export function isDirectory(source) {
-  return fs.lstatSync(source).isDirectory();
+export function isDirectory(entry, baseDir) {
+  return fs.statSync(`${baseDir}/${entry}`).isDirectory();
 }
 
 export function excludeDirectories(dir, exclude) {
   return !exclude.includes(dir);
 }
 
-export function hasHTMLIndexFile(dir) {
-  return fs.existsSync(`${dir}${path.sep}index.html`);
+export function hasHTMLIndexFile(dir, baseDir) {
+  return fs.existsSync(`${baseDir}${path.sep}${dir}${path.sep}index.html`);
 }
 
-export default function getDirectories(config) {
+export function getDirectories(config) {
   try {
     return fs.readdirSync(config.baseDir)
-      .filter(isDirectory)
+      .filter(entry => isDirectory(entry, config.baseDir))
       .filter(dir => excludeDirectories(dir, config.exclude))
-      .filter(hasHTMLIndexFile);
+      .filter(dir => hasHTMLIndexFile(dir, config.baseDir));
   } catch (err) {
     switch (err.code) {
       case 'EACCES':
