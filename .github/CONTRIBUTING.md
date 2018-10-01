@@ -29,7 +29,7 @@ Create and switch to new feature branch: `git checkout -b {branch_name} upstream
 `yarn test`
 
 ### 5. Run lint
-`yarn test`
+`yarn lint`
 
 ### 6. Push changes to your fork/branch
 1. After lint and all tests pass, push the changes to your fork/branch on GitHub: `git push origin {branch_name}`.
