@@ -4,8 +4,8 @@
 1. Create your own fork of this project.
 2. Create a feature branch.
 3. Make your changes.
-4. Run testing `npm test`.
-5. Run linting `npm run lint`.
+4. Run testing `yarn test`.
+5. Run linting `yarn lint`.
 6. Push changes to your fork/branch.
 7. Create pull request.
 8. Code review and automated testing.
@@ -26,10 +26,10 @@ Create and switch to new feature branch: `git checkout -b {branch_name} upstream
 3. Look at how to run your own local development copy [here](https://github.com/ollelauribostrom/hindex/blob/master/README.md#running-your-own-local-development-copy).
 
 ### 4. Run tests
-`npm run test`
+`yarn test`
 
 ### 5. Run lint
-`npm run lint`
+`yarn test`
 
 ### 6. Push changes to your fork/branch
 1. After lint and all tests pass, push the changes to your fork/branch on GitHub: `git push origin {branch_name}`.
