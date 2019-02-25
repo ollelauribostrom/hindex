@@ -1,6 +1,6 @@
 {
   "name": "@ollelauribostrom/hindex",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Wrap your reports in an index.html file with a single command",
   "main": "dist/hindex.js",
   "bin": {
